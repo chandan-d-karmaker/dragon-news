@@ -1,10 +1,13 @@
 import Link from 'next/link';
 import React from 'react';
+import avatar from '@/assets/user.png';
+import Image from 'next/image';
+import NavLink from './Navlink';
 
 
 const Navbar = () => {
     return (
-        <div>
+        <div className='w-4/5 mx-auto'>
             <div className="navbar bg-base-100">
                 <div className="navbar-start">
                     <div className="dropdown">
@@ -15,22 +18,25 @@ const Navbar = () => {
                             tabIndex="-1"
                             className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
 
-                            <li><Link href={'/news'}>Home</Link></li>
-                            <li><Link href={'/about'}>About</Link></li>
-                            <li><Link href={'/carrer'}>carrer</Link></li>
+                            <li><Link href={'/news'} className='text-lg text-[#706F6F]'>Home</Link></li>
+                            <li><Link href={'/about'} className='text-lg text-[#706F6F]'>About</Link></li>
+                            <li><Link href={'/carrer'} className='text-lg text-[#706F6F]'>carrer</Link></li>
 
                         </ul>
                     </div>
                 </div>
                 <div className="navbar-center hidden lg:flex">
                     <ul className="menu menu-horizontal px-1">
-                        <li><Link href={'/news'}>Home</Link></li>
-                        <li><Link href={'/about'}>About</Link></li>
-                        <li><Link href={'/carrer'}>carrer</Link></li>
+                        <li><NavLink href={'/'} className='text-lg text-[#706F6F]'>Home</NavLink></li>
+                        <li><NavLink href={'/about'} className='text-lg text-[#706F6F]'>About</NavLink></li>
+                        <li><NavLink href={'/carrer'} className='text-lg text-[#706F6F]'>carrer</NavLink></li>
                     </ul>
                 </div>
-                <div className="navbar-end">
-                    <a className="btn">Button</a>
+                <div className="navbar-end flex gap-4">
+                    <Image src={avatar} width={40} height={40} alt='avatar'/>
+                    <button className="btn bg-[#403F3F] font-semibold text-white">
+                        <Link href={'/login'}>Login</Link>
+                    </button>
                 </div>
             </div>
         </div>
