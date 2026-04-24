@@ -36,7 +36,7 @@ const newsHeadlines = [
 
 const BreakingNews = () => {
     return (
-        <div className='w-4/5 mx-auto p-4 bg-[#F3F3F3] mb-6'>
+        <div className='p-4 bg-[#F3F3F3] mb-6'>
 
             <div className='flex gap-4 items-center'>
 
