@@ -1,4 +1,7 @@
-import NewsCategories from "@/components/homepage/LeftSideBar.jsx/NewsCategories";
+import NewsCategories from "@/components/homepage/LeftSideBar/NewsCategories";
+import FindUsOn from "@/components/homepage/RightSideBar/FindUsOn";
+import Login from "@/components/homepage/RightSideBar/Login";
+import Qzone from "@/components/homepage/RightSideBar/Qzone";
 
 const getCategories = async () => {
   const res = await fetch('https://openapi.programming-hero.com/api/news/categories');
@@ -17,11 +20,13 @@ export default async function Home() {
         <h2 className="text-xl font-semibold text-[#403F3F] mb-5">All categories</h2>
         <NewsCategories categories={categories} id={categories}/>
       </div>
-      <div className="font-bold text-5xl bg-red-500 col-span-2">
+      <div className="text-xl font-semibold text-[#403F3F] mb-5 col-span-2">
         All news
       </div>
-      <div className="font-bold text-5xl bg-purple-300">
-        All social
+      <div className="space-y-4">
+        <Login/>
+        <FindUsOn/>
+        <Qzone/>
       </div>
     </div>
   );
