@@ -1,9 +1,12 @@
+import NewsCard from '@/components/shared/NewsCard';
 import React from 'react';
 
-const NewsSection = () => {
+const NewsSection = ({news}) => {
     return (
         <div>
-            Selected category News here
+            {
+                news.map(item => <NewsCard key={item._id} item={item}></NewsCard>)
+            }
         </div>
     );
 };
