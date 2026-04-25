@@ -30,7 +30,7 @@ export default function RootLayout({ children }) {
     >
       <body className={`${poppins.className} min-h-full flex flex-col`}>
 
-        <main className="w-4/5 mx-auto">
+        <main className="w-4/5 mx-auto mb-10">
           {children}
         </main>
 

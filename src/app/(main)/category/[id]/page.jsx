@@ -9,10 +9,12 @@ import { getCategories, getNewsByCategoryId } from '@/lib/data';
 
 const NewsCategoryPage = async ({ params }) => {
     const {id} = await params;
+    
     console.log('params: ',id);
 
     const categories = await getCategories();
     const news = await getNewsByCategoryId(id);
+    console.log(news);
 
     return (
         <div className="grid grid-cols-4 gap-4">
