@@ -44,9 +44,9 @@ const BreakingNews = () => {
                     <h2 className='text-white'>Latest</h2>
                 </div>
                 <div className=''>
-                    <Marquee pauseOnHover='true' >
+                    <Marquee pauseOnHover='true'>
                        {
-                        newsHeadlines.map(news => <p key={news.id} news={news} className='mr-4'>
+                        newsHeadlines.map(news => <p key={news.id} news={news}>
                             {<span className='font-bold mr-1'> {news.category}: </span>}
                             {news.title}
                         </p>)

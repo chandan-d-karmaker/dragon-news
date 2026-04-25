@@ -35,7 +35,7 @@ const Navbar = () => {
                 <div className="navbar-end flex gap-4">
                     <Image src={avatar} width={40} height={40} alt='avatar'/>
                     <button className="btn bg-[#403F3F] font-semibold text-white">
-                        <Link href={'/login'}>Login</Link>
+                        <Link href={'/register'}>Register</Link>
                     </button>
                 </div>
             </div>

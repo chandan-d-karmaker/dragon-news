@@ -4,18 +4,8 @@ import Login from '@/components/homepage/RightSideBar/Login';
 import Qzone from '@/components/homepage/RightSideBar/Qzone';
 import React from 'react';
 import NewsSection from '../../news/page';
+import { getCategories, getNewsByCategoryId } from '@/lib/data';
 
-const getCategories = async () => {
-    const res = await fetch('https://openapi.programming-hero.com/api/news/categories');
-    const data = await res.json();
-    return data.data.news_category;
-}
-
-const getNewsByCategoryId = async (id) => {
-    const res = await fetch(`https://openapi.programming-hero.com/api/news/category/${id}`);
-    const data = await res.json();
-    return data;
-}
 
 const NewsCategoryPage = async ({ params }) => {
     const {id} = await params;
