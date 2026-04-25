@@ -1,4 +1,4 @@
-import { getNewsDetails } from '@/lib/data';
+import { getNewsByCategoryId, getNewsDetails } from '@/lib/data';
 import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';
@@ -7,6 +7,19 @@ import { CiShare2 } from "react-icons/ci";
 import { FaRegEye } from "react-icons/fa";
 import { FaStar } from "react-icons/fa";
 import { IoMdArrowRoundBack } from "react-icons/io";
+
+export const generateMetadata = async ({params}) =>{
+    const {id} = await params;
+    // console.log(id)
+    const news =await getNewsDetails(id);
+    // console.log(news);
+    
+    return{
+        title: news.title,
+        description: news.details,
+    };
+
+}
 
 const NewsDetailsPage = async ({ params }) => {
     const { id } = await params;
@@ -18,7 +31,7 @@ const NewsDetailsPage = async ({ params }) => {
     return (
         <div className='col-span-3'>
             <Link href={'/'}>
-                <button className='btn mb-5'><IoMdArrowRoundBack /> Back</button>
+                <button className='btn mb-5 bg-cyan-500 text-white'><IoMdArrowRoundBack /> Back</button>
             </Link>
             <div className='border border-[#E7E7E7] rounded-2xl'>
 
@@ -44,8 +57,8 @@ const NewsDetailsPage = async ({ params }) => {
                 {/* body */}
                 <div className='p-5'>
                     <h2 className='text-xl font-bold leading-8 mb-5'>{news.title}</h2>
-                    <Image src={news.thumbnail_url} alt='thumbnail_url' width={700} height={200} className='mb-8' />
-                    <p className='text-[16px] font-normal text-[#706F6F] mb-5'>{news.details}</p>
+                    <Image src={news.image_url} alt='thumbnail_url' width={700} height={200} className='mb-8' />
+                    <p className='text-[16px] font-normal text-[#232222] mb-5'>{news.details}</p>
 
                     <hr />
                     <div className='flex justify-between mt-5'>
