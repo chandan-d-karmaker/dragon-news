@@ -29,7 +29,7 @@ const NewsCategoryPage = async ({ params }) => {
 
             <div className="">
                 <h2 className="text-xl font-semibold text-[#403F3F] mb-5">All categories</h2>
-                <NewsCategories categories={categories} id={categories} />
+                <NewsCategories categories={categories} activeId={id} />
             </div>
             <div className="text-xl font-semibold text-[#403F3F] mb-5 col-span-2">
                 <NewsSection news={news.data}/>
