@@ -26,7 +26,7 @@ const NewsDetailsPage = async ({ params }) => {
 
     const news = await getNewsDetails(id);
 
-    console.log(news);
+    // console.log(news);
 
     return (
         <div className='col-span-3'>

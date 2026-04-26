@@ -1,11 +1,15 @@
+'use client'
 import Link from 'next/link';
 import React from 'react';
 import avatar from '@/assets/user.png';
 import Image from 'next/image';
 import NavLink from './Navlink';
+import { useSession } from '@/lib/auth-client';
 
 
 const Navbar = () => {
+
+    const user = useSession();
     return (
         <div className='mb-5'>
             <div className="navbar bg-base-100">
@@ -35,7 +39,10 @@ const Navbar = () => {
                 <div className="navbar-end flex gap-4">
                     <Image src={avatar} width={40} height={40} alt='avatar'/>
                     <button className="btn bg-[#403F3F] font-semibold text-white">
-                        <Link href={'/register'}>Register</Link>
+                        {
+                            user?.data ? <Link href={'/login'}>Login</Link>: <Link href={'/register'}>Register</Link>
+                        }
+                        
                     </button>
                 </div>
             </div>
