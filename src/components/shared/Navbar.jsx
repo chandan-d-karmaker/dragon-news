@@ -4,7 +4,7 @@ import React from 'react';
 import avatar from '@/assets/user.png';
 import Image from 'next/image';
 import NavLink from './Navlink';
-import { useSession } from '@/lib/auth-client';
+import { signOut, useSession } from '@/lib/auth-client';
 
 
 const Navbar = () => {
@@ -40,10 +40,16 @@ const Navbar = () => {
                     <Image src={avatar} width={40} height={40} alt='avatar'/>
                     <button className="btn bg-[#403F3F] font-semibold text-white">
                         {
-                            user?.data ? <Link href={'/login'}>Login</Link>: <Link href={'/register'}>Register</Link>
+                            user?.data ? <Link onClick={()=> signOut()} href={'/login'}>Log out</Link>: <Link href={'/register'}>Register</Link>
                         }
-                        
                     </button>
+                    
+                        {
+                            user?.data ? '' : <button className="btn bg-[#403F3F] font-semibold text-white">
+                                 <Link onClick={()=> signOut()} href={'/login'}>Log in</Link>
+                            </button>
+                        }
+                    
                 </div>
             </div>
         </div>
