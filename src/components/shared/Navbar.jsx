@@ -38,6 +38,9 @@ const Navbar = () => {
                 </div>
                 <div className="navbar-end flex gap-4">
                     <Image src={avatar} width={40} height={40} alt='avatar'/>
+                    {
+                        user && <h2 className='text-xl font-semibold'>Welcome, {user?.data?.user?.name} </h2>
+                    }
                     <button className="btn bg-[#403F3F] font-semibold text-white">
                         {
                             user?.data ? <Link onClick={()=> signOut()} href={'/login'}>Log out</Link>: <Link href={'/register'}>Register</Link>
